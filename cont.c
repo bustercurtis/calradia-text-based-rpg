@@ -2,5 +2,5 @@
 void cont()
 {
   char wait;
-  scanf("%c", &wait);
+  scanf(" %c", &wait);
 }

@@ -92,7 +92,6 @@ int fight(Character **player, Character **enemy)
     }
     while(fighting)
     {
-      char cont;
       if((*player)->health < 0)
       {
         int randdeath = rand() % 20;
@@ -101,12 +100,13 @@ int fight(Character **player, Character **enemy)
           print("\nAs you fall to the ground you feel the blood in your\nneck throb and it becomes difficult to breathe.\n"
                  "Suddenly, panic sets in as you realize that these are\nyour last moments.\n\nFinally, the pains stops and"
                  " you are at peace.\n\n\nYou Died\n");
-          scanf("%c", &cont);
+          cont();
           exit(0);
         }
         else
         {
           print("\nYou are knocked to the ground, unconscious.\nYour men panic.\n");
+          cont();
           (*player)->party.morale -= 10;
           return 0;
         }
@@ -122,11 +122,13 @@ int fight(Character **player, Character **enemy)
         if(!checkparty(&(*player)->party))
         {
           print("a shameful display of cowardice.\n");
+          cont();
           return 0;
         }
         else
         {
           print("striking fear into the hearts of your men.\n");
+          cont();
           (*player)->party.morale -= 5;
           return 0;
         }
@@ -143,24 +145,25 @@ int fight(Character **player, Character **enemy)
         {
           int edamage = calcdamage(enemy);
           (*player)->health -= edamage;
-          scanf("%c", &cont);
+          cont();
           print("\nYour enemy fights back with his %s, dealing %d damage!\n", (*enemy)->activeitems[0].name, edamage);
         }
         else
         {
           float xpgained = 4*(*enemy)->attack;
           (*player)->xp += xpgained;
-          print("\nYour enemy falls before you. You have won your fight.\n\n--Health--\n%g/%g\n\n--XP Gained--\n%gxp\n\n"
+          print("\nYour enemy falls before you. You have won your fight.\n\n--Health--\n%g/%g\n\n--XP Gained--\n%gxp"
                  "--XP--\n%g/%g\n", (*player)->health, (*player)->maxhealth, xpgained, (*player)->xp, (*player)->nextlevel);
+          cont();
           return 1;
         }
       }
       else
       {
-        print("\nInvalid commmand. In your confusion, your enemy strikes.\n");
+        print("\nInvalid commmand. In your confusion, your enemy strikes.");
         int edamage = calcdamage(enemy);
         (*player)->health -= edamage;
-        scanf("%c", &cont);
+        cont();
         print("\nYour enemy fights back with his %s, dealing %d damage!\n", (*enemy)->activeitems[0].name, edamage);
       }
     }
