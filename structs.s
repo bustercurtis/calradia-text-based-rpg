@@ -1,6 +1,7 @@
 #ifndef STRUCTS
 #define STRUCTS
 typedef enum {ARMOR, ONEHANDED, BOW, TWOHANDED, GOOD} Type;
+typedef enum {INFANTRY, ARCHER, CAVALRY, HORSE_ARCHER, ALL} TroopType;
 typedef struct
 {
   float damage, armor;
@@ -10,6 +11,7 @@ typedef struct
 } Item;
 typedef struct
 {
+  TroopType type;
   double skill;
   char name[32];
 } Troop;
@@ -28,4 +30,11 @@ typedef struct
   Item inventory[400];
   Item activeitems[2];
 } Character;
+typedef struct
+{
+  float againstcav, againstinfantry, againstarchers, quality, defensive, offensive;
+  int melee;
+  TroopType affects;
+  char name[32];
+} BattleCommand;
 #endif

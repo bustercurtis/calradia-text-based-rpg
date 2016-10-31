@@ -50,21 +50,21 @@ void showinventory(Character *player)
   print("\n");
   return;
 }
-int calcdamage(Character **player)
+int calcdamage(Character *player)
 {
   double weaponmod = 0;
-  if((*player)->activeitems[0].type == BOW)
+  if(player->activeitems[0].type == BOW)
   {
-    weaponmod = (*player)->bow;
+    weaponmod = player->bow;
   }
-  if((*player)->activeitems[0].type == ONEHANDED)
+  if(player->activeitems[0].type == ONEHANDED)
   {
-    weaponmod = (*player)->onehanded;
+    weaponmod = player->onehanded;
   }
-  if((*player)->activeitems[0].type == TWOHANDED)
+  if(player->activeitems[0].type == TWOHANDED)
   {
-    weaponmod = (*player)->twohanded;
+    weaponmod = player->twohanded;
   }
-  int damage = (((*player)->attack + (*player)->activeitems[0].damage)/2)*(1 + weaponmod/100);
+  int damage = ((player->attack + player->activeitems[0].damage)/2)*(1 + weaponmod/100);
   return damage;
 }

@@ -8,6 +8,6 @@ void showstats(Character *player);
 void checklevel(Character *player);
 void levelup(Character *player);
 void showinventory(Character *player);
-int calcdamage(Character **player);
+int calcdamage(Character *player);
 #endif
 

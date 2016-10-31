@@ -28,7 +28,7 @@ int main()
   cont();
   print("\nIt's late at night as you enter Dhirim.\nThe streets are deserted, and there's a distinctly cold breeze.\n"
          "Suddenly you hear a blade rasping from its scabard.\nBefore you understand what's happening, he has demanded"
-         " your purse.\n\nTWO NEW COMMANDS: flee, attack\nattack: Basic attack against enemy\nflee: flee the battle\n");
+         " your purse.\n\nTWO NEW COMMANDS: flee, attack\nattack: basic attack against enemy\nflee: flee the battle\n");
   cont();
   int won = battle(player, introbandit);
   if(!won)
