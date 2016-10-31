@@ -1,6 +1,6 @@
 #include"cont.h"
 void cont()
 {
-  char wait;
-  scanf(" %c", &wait);
+  getchar(); //gets trailing newline from last line
+  while(getchar() != '\n'); 
 }
