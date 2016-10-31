@@ -1,12 +1,13 @@
 CC = clang
 CC2 = gcc
-CFLAGS = -g
+CFLAGS = -g -o calradia
+FILES = stbg.c calcCheck.c characterInits.c cont.c fighting.c intro.c print.c level.c map.c
 
-all: stbg.c calcCheck.c characterInits.c cont.c fighting.c intro.c print.c level.c map.c
-	$(CC) $(CFLAGS) -o calradia stbg.c calcCheck.c characterInits.c cont.c fighting.c intro.c print.c level.c map.c
+all: $(FILES)
+	$(CC) $(CFLAGS) $(FILES)
 
-alt: stbg.c calcCheck.c characterInits.c cont.c fighting.c intro.c print.c level.c map.c
-	$(CC2) $(CFLAGS) -o calradia stbg.c calcCheck.c characterInits.c cont.c fighting.c intro.c print.c level.c map.c
+alt: $(FILES)
+	$(CC2) $(CFLAGS) $(FILES)
 
 clean: calradia
 	rm -f calradia
