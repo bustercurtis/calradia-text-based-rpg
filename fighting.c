@@ -43,7 +43,6 @@ int battle(Character *player, Character *enemy)
              "shieldwall: defensive maneuver, good with infantry, good against charge and skirmish\n"
              "cantabrian: horse archer circle, avoiding melee while firing missiles with high mobility\n");
     }
-    return 1;
     while(battling)
     {
       

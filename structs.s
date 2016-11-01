@@ -4,16 +4,15 @@ typedef enum {ARMOR, ONEHANDED, BOW, TWOHANDED, GOOD} Type;
 typedef enum {INFANTRY, ARCHER, CAVALRY, HORSE_ARCHER, ALL} TroopType;
 typedef struct
 {
-  float damage, armor;
-  int taken;
-  char name[32];
+  float value;
+  char *name;
   Type type;
 } Item;
 typedef struct
 {
   TroopType type;
   double skill;
-  char name[32];
+  char *name;
 } Troop;
 typedef struct
 {
@@ -23,18 +22,19 @@ typedef struct
 typedef struct
 {
   float x, y, maxhealth, xp, nextlevel, level, health, attack, onehanded, bow, twohanded, trade,
-    persuasion, leadership, money, alive, visible, faction, host;
-  char name[32];
-  char *graphic;
+    persuasion, leadership, money, host;
+  char *name;
+  char graphic;
   Party party;
-  Item inventory[400];
+  Item inventory[64];
   Item activeitems[2];
+  int commands[10];
 } Character;
 typedef struct
 {
-  float againstcav, againstinfantry, againstarchers, quality, defensive, offensive;
+  float anticav, antiinfantry, antiarchers, quality, defensive, offensive;
   int melee;
   TroopType affects;
-  char name[32];
+  char *name;
 } BattleCommand;
 #endif

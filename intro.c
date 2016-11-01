@@ -15,11 +15,11 @@ void intro(Character *player)
          "their own claims to the old empire and\n"
          "its people. But first - who are you?\n\n");
   Item basicsword;
-  basicsword.damage = 1;
+  basicsword.value = 1;
   basicsword.type = ONEHANDED;
   strcpy(basicsword.name, "Basic Sword");
   Item basicarmor;
-  basicarmor.armor = 1;
+  basicarmor.value = 1;
   basicarmor.type = ARMOR;
   strcpy(basicarmor.name, "Basic Armor");
   Item basicbow;

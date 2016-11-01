@@ -1,5 +1,5 @@
 #include"calcCheck.h"
-int checkparty(Party *party)
+int checkParty(Party *party)
 {
   int size = 0;
   for(int i = 0; i < 100; i++)
@@ -12,15 +12,15 @@ int checkparty(Party *party)
   return size;
 }
 
-void showstats(Character *player)
+void showStats(Character *player)
 {
-  print("\n\n-----<|Stats|>-----\n%s, Level %g\nXP: %g/%g\nHealth: %g/%g\nStrength: %g\nTrade: %g\nPersuasion: %g\n"
+  print("\n\n-----<|Stats|>-----\n%s, Level %g\nXP: %g/%g\nHealth: %g/%g\nAttack: %g\nTrade: %g\nPersuasion: %g\n"
          "Leadership: %g\n--Weapon Skills--\nOne Handed: %g\nBow: %g\nTwo Handed: %g\n", player->name, player->level,
          player->xp, player->nextlevel, player->health, player->maxhealth, player->attack, player->trade, player->persuasion,
          player->leadership, player->onehanded, player->bow, player->twohanded);
   return;
 }
-void checklevel(Character *player)
+void checkLevel(Character *player)
 {
   if(player->xp >= player->nextlevel)
   {
@@ -30,7 +30,7 @@ void checklevel(Character *player)
   }
   return;
 }
-void showinventory(Character *player)
+void showInventory(Character *player)
 {
   print("\n\n----Active Items----\nWeapon: %s\nArmor: %s\n\n----Inventory----\n", player->activeitems[0].name,
          player->activeitems[1].name);
@@ -50,7 +50,7 @@ void showinventory(Character *player)
   print("\n");
   return;
 }
-int calcdamage(Character *player)
+int calcDamage(Character *player)
 {
   double weaponmod = 0;
   if(player->activeitems[0].type == BOW)
