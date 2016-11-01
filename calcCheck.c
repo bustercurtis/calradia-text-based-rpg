@@ -25,7 +25,7 @@ void checkLevel(Character *player)
   if(player->xp >= player->nextlevel)
   {
     player->level++;
-    showstats(player);
+    showStats(player);
     levelup(player);
   }
   return;
@@ -37,7 +37,7 @@ void showInventory(Character *player)
   int emptynum = 0;
   for(int i = 0; i < 400; i++)
   {
-    if(player->inventory[i].taken)
+    if(strcmp(player->inventory[i].name, ""))
     {
       print("%s\n", player->inventory[i].name);
     }
@@ -65,6 +65,6 @@ int calcDamage(Character *player)
   {
     weaponmod = player->twohanded;
   }
-  int damage = ((player->attack + player->activeitems[0].damage)/2)*(1 + weaponmod/100);
+  int damage = ((player->attack + player->activeitems[0].value)/2)*(1 + weaponmod/100);
   return damage;
 }

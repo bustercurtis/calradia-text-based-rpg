@@ -4,11 +4,11 @@ int battle(Character *player, Character *enemy)
 {
   int battling = 1;
   print("\n\nYou have encountered %s's party. They have %d troops.\n", enemy->name,
-         checkparty(&enemy->party));
-  if(checkparty(&enemy->party) > 5 && checkparty(&player->party) == 0)
+         checkParty(&enemy->party));
+  if(checkParty(&enemy->party) > 5 && checkParty(&player->party) == 0)
   {
     print("\nAs you approach to fight the enemy, all %d of %s's men surround you.\nThere is no chance of victory"
-          ", and you are quickly defeated.\n", checkparty(&enemy->party), enemy->name);
+          ", and you are quickly defeated.\n", checkParty(&enemy->party), enemy->name);
     print("\nBattle lost.\n");
     int death = rand() % 20;
     if(death == 7)
@@ -19,15 +19,15 @@ int battle(Character *player, Character *enemy)
     }
     else{return 0;}
   }
-  if(checkparty(&enemy->party) > 5 && checkparty(&player->party) == 0)
+  if(checkParty(&enemy->party) > 5 && checkParty(&player->party) == 0)
   {
     print("\nAs you approach to fight the enemy, %s stands there, surrounded by your men.\nVictory is swift."
           "\n", enemy->name);
     print("\nBattle won!\n");
-    showstats(player);
+    showStats(player);
     return 1;
   }
-  else if(checkparty(&enemy->party) == 0 || checkparty(&player->party) == 0)
+  else if(checkParty(&enemy->party) == 0 || checkParty(&player->party) == 0)
   {
     return fight(player, enemy);
   }
@@ -68,7 +68,7 @@ int fight(Character *player, Character *enemy)
       break;
     case 2:
       print("\nYou circle eachother, waiting for an opportune time to strike.\n");
-      if(checkparty(&(player->party)) > 0 && checkparty(&(enemy->party)) > 0)
+      if(checkParty(&(player->party)) > 0 && checkParty(&(enemy->party)) > 0)
       {
         print("Only once an arrow lands near your foot do you remember that this\nis a battle, not a duel.");
       }
@@ -113,7 +113,7 @@ int fight(Character *player, Character *enemy)
     if(!strncmp(fightchoice, "flee", 4))
     {
       print("\nYou run from the enemy, ");
-      if(!checkparty(&player->party))
+      if(!checkParty(&player->party))
       {
         print("a shameful display of cowardice.\n");
         cont();
@@ -131,13 +131,13 @@ int fight(Character *player, Character *enemy)
     {
       if(player->health > 0)
       {
-        int pdamage = calcdamage(player);
+        int pdamage = calcDamage(player);
         print("\nYou attack with your %s, dealing %d damage.\n", player->activeitems[0].name, pdamage);
         enemy->health -= pdamage;
       }
       if(enemy->health > 0)
       {
-        int edamage = calcdamage(enemy);
+        int edamage = calcDamage(enemy);
         player->health -= edamage;
         cont();
         print("\nYour enemy fights back with his %s, dealing %d damage!\n", enemy->activeitems[0].name, edamage);
@@ -155,7 +155,7 @@ int fight(Character *player, Character *enemy)
     else
     {
       print("\nInvalid commmand. In your confusion, your enemy strikes.\n");
-      int edamage = calcdamage(enemy);
+      int edamage = calcDamage(enemy);
       player->health -= edamage;
       cont();
       print("\nYour enemy fights back with his %s, dealing %d damage!\n", enemy->activeitems[0].name, edamage);

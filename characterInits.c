@@ -20,18 +20,15 @@ Character* initcharacter(float x, float y, float maxhealth, float health, float 
   player->persuasion = persuasion;
   player->leadership = leadership;
   player->money = money;
-  player->alive = alive;
-  player->faction = faction;
   player->host = host;
   strcpy(player->name, name);
-  player->graphic = graphic;
+  player->graphic = *graphic; //TODO char* to char in argument list, remove cast
   return player;
 }
 
-void initinventory(Character *character)
+void initInventory(Character *character)
 {
   Item empty;
-  empty.taken = 0;
   for(int i = 0; i < 400; i++)
   {
     character->inventory[i] = empty;
@@ -39,17 +36,17 @@ void initinventory(Character *character)
   Item fists;
   fists.type = TWOHANDED;
   strcpy(fists.name, "fists");
-  fists.damage = 0;
+  fists.value = 0;
   character->activeitems[0] = fists;
   Item noarmor;
   noarmor.type = ARMOR;
-  strcpy(noarmor.name, "no armor");
-  noarmor.armor = 0;
+  strcpy(noarmor.name, "no armor"); //TODO why do we strcpy?
+  noarmor.value = 0;
   character->activeitems[1] = noarmor;
   return;
 }
 
-void initparty(Character *leader)
+void initParty(Character *leader)
 {
   Party party;
   Troop defaulttroop;
@@ -66,7 +63,7 @@ void initparty(Character *leader)
       }
       break;
     case 1:
-      if(leader->faction == 1)
+      if(0) //TODO faction #1
       {
         for(int i = 0; i < 20; i++)
         {

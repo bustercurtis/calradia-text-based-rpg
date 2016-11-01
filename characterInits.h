@@ -8,6 +8,6 @@ Character* initcharacter(float x, float y, float maxhealth, float health, float 
                         float nextlevel, float level, float attack, float onehanded, float bow, float twohanded,
                         float trade, float persuasion, float leadership, float money, float alive,
                         float faction, float host, char name[32], char *graphic);
-void initparty(Character *leader);
-void initinventory(Character *character);
+void initParty(Character *leader);
+void initInventory(Character *character);
 #endif

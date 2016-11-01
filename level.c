@@ -23,6 +23,6 @@ void levelup(Character *player)
       player->leadership += 1;
       break;
   }
-  showstats(player);
+  showStats(player);
   return;
 }

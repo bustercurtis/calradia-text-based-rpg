@@ -23,7 +23,7 @@ void intro(Character *player)
   basicarmor.type = ARMOR;
   strcpy(basicarmor.name, "Basic Armor");
   Item basicbow;
-  basicbow.damage = 1;
+  basicbow.value = 1;
   basicbow.type = BOW;
   strcpy(basicbow.name, "Basic Bow");
   char choice1 = 0;

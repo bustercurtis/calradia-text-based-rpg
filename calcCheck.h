@@ -1,13 +1,14 @@
 #ifndef CALC_CHECK
 #define CALC_CHECK
 #include<stdio.h>
+#include <string.h>
 #include"structs.s"
 #include"print.h"
-int checkparty(Party *party);
-void showstats(Character *player);
-void checklevel(Character *player);
+int checkParty(Party *party);
+void showStats(Character *player);
+void checkLevel(Character *player);
 void levelup(Character *player);
-void showinventory(Character *player);
-int calcdamage(Character *player);
+void showInventory(Character *player);
+int calcDamage(Character *player);
 #endif
 
