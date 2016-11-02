@@ -21,7 +21,7 @@ Character* initcharacter(float x, float y, float maxhealth, float health, float 
   player->leadership = leadership;
   player->money = money;
   player->host = host;
-  strcpy(player->name, name);
+  player->name = name;
   player->graphic = *graphic; //TODO char* to char in argument list, remove cast
   return player;
 }
@@ -29,18 +29,20 @@ Character* initcharacter(float x, float y, float maxhealth, float health, float 
 void initInventory(Character *character)
 {
   Item empty;
-  for(int i = 0; i < 400; i++)
+  for(int i = 0; i < 50; i++) //TODO use a MACRO for inventory size
   {
     character->inventory[i] = empty;
   }
   Item fists;
   fists.type = TWOHANDED;
-  strcpy(fists.name, "fists");
+  //strcpy(fists.name, "fists");
+  fists.name = "Fists";
   fists.value = 0;
   character->activeitems[0] = fists;
   Item noarmor;
   noarmor.type = ARMOR;
-  strcpy(noarmor.name, "no armor"); //TODO why do we strcpy?
+  //strcpy(noarmor.name, "no armor");
+  noarmor.name = "No Armor";
   noarmor.value = 0;
   character->activeitems[1] = noarmor;
   return;
@@ -51,9 +53,10 @@ void initParty(Character *leader)
   Party party;
   Troop defaulttroop;
   party.morale = 50;
-  defaulttroop.name[0] = 'i';
+  //defaulttroop.name[0] = 'i';
   Troop bandit;
-  strcpy(bandit.name, "Bandit");
+  //strcpy(bandit.name, "Bandit");
+  bandit.name = "Bandit";
   bandit.skill = 2;
   switch((int)leader->host){
     case 0:
