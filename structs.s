@@ -36,7 +36,7 @@ typedef struct
   Party party;
   Item inventory[64];
   Item activeitems[2];
-  int commands[12];
+  int commands[13];
   BattleCommand *unlockOrder;
 } Character;
 typedef enum {Plain, Forest, Hills} Terrain;
