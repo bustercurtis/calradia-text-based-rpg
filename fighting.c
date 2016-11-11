@@ -38,11 +38,12 @@ int battle(Character *player, Character *enemy)
     if(!FOUGHT)
     {
       printf("\nFOUR NEW COMMANDS: charge, skirmish, shieldwall, cantabrian\n"
-             "charge: unorganized frontal charge, good with cavalry, poor with archers\n"
+             "charge: unorganized frontal charge, good with cavalry, good against archers\n"
              "skirmish: stay back and avoid melee whilst firing missiles, good with archers poor against cavalry\n"
-             "shieldwall: defensive maneuver, good with infantry, good against charge and skirmish\n"
+             "shield: defensive maneuver, good with infantry, good against charge\n"
              "cantabrian: horse archer circle, avoiding melee while firing missiles with high mobility\n");
     }
+    return 1;
     while(battling)
     {
       

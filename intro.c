@@ -17,17 +17,14 @@ void intro(Character *player)
   Item basicsword;
   basicsword.value = 1;
   basicsword.type = ONEHANDED;
-  //strcpy(basicsword.name, "Basic Sword");
   basicsword.name = "Basic Sword";
   Item basicarmor;
   basicarmor.value = 1;
   basicarmor.type = ARMOR;
-  //strcpy(basicarmor.name, "Basic Armor");
   basicarmor.name = "Basic Armor";
   Item basicbow;
   basicbow.value = 1;
   basicbow.type = BOW;
-  //strcpy(basicbow.name, "Basic Bow");
   basicbow.name = "Basic Bow";
   char choice1 = 0;
   char choice2 = 0;

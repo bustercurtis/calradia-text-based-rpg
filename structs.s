@@ -28,13 +28,13 @@ typedef struct
   Party party;
   Item inventory[64];
   Item activeitems[2];
-  int commands[10];
+  int commands[12];
 } Character;
 typedef struct
 {
   float anticav, antiinfantry, antiarchers, quality, defensive, offensive;
   int melee;
   TroopType affects;
-  char *name;
+  char *name, *desc;
 } BattleCommand;
 #endif
