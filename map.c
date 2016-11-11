@@ -1,6 +1,6 @@
 #include "map.h"
 
-void printMap(Tile ***map) //fuck me
+void printMap(Tile ***map) //fuck me OK daddy
 {
   char out = 0;
 

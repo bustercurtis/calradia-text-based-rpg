@@ -21,6 +21,13 @@ typedef struct
 } Party;
 typedef struct
 {
+  float anticav, antiinfantry, antiarchers, quality, defensive, offensive;
+  int melee;
+  TroopType affects;
+  char *name, *desc;
+} BattleCommand;
+typedef struct
+{
   float x, y, maxhealth, xp, nextlevel, level, health, attack, onehanded, bow, twohanded, trade,
     persuasion, leadership, money, host;
   char *name;
@@ -29,12 +36,6 @@ typedef struct
   Item inventory[64];
   Item activeitems[2];
   int commands[12];
+  BattleCommand *unlockOrder;
 } Character;
-typedef struct
-{
-  float anticav, antiinfantry, antiarchers, quality, defensive, offensive;
-  int melee;
-  TroopType affects;
-  char *name, *desc;
-} BattleCommand;
 #endif
