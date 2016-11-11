@@ -1,5 +1,6 @@
 #ifndef STRUCTS
 #define STRUCTS
+#define MAX_CHAR_PER_TILE 4
 typedef enum {ARMOR, ONEHANDED, BOW, TWOHANDED, GOOD} Type;
 typedef enum {INFANTRY, ARCHER, CAVALRY, HORSE_ARCHER, ALL} TroopType;
 typedef struct
@@ -38,4 +39,11 @@ typedef struct
   int commands[12];
   BattleCommand *unlockOrder;
 } Character;
+typedef enum {Plain, Forest, Hills} Terrain;
+typedef enum {None, Village, Castle} Structure;
+typedef struct {
+  Terrain terrain;
+  Structure structure;
+  Character characters[MAX_CHAR_PER_TILE];
+} Tile;
 #endif

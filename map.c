@@ -1,6 +1,6 @@
 #include "map.h"
 
-void printMap(Tile ***map) //fuck me OK daddy
+void printMap(Tile ***map) //OK daddy
 {
   char out = 0;
 
@@ -19,6 +19,9 @@ void printMap(Tile ***map) //fuck me OK daddy
 	case Hills:
 	  out = '_';
 	  break;
+        default:
+	  out = ' ';
+	  break;
       }
 
       //overrides terrain type
@@ -29,6 +32,9 @@ void printMap(Tile ***map) //fuck me OK daddy
 	  break;
 	case Castle:
 	  out = '#';
+	  break;
+	default:
+	  out = ' ';
 	  break;
       }
 
