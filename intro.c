@@ -17,22 +17,23 @@ void intro(Character *player)
   Item basicsword;
   basicsword.value = 1;
   basicsword.type = ONEHANDED;
-  basicsword.name = "Basic Sword";
+  strcpy(basicsword.name, "Basic Sword");
   Item basicarmor;
   basicarmor.value = 1;
   basicarmor.type = ARMOR;
-  basicarmor.name = "Basic Armor";
+  strcpy(basicarmor.name, "Basic Armor");
   Item basicbow;
   basicbow.value = 1;
   basicbow.type = BOW;
-  basicbow.name = "Basic Bow";
+  strcpy(basicbow.name, "Basic Bow");
   char choice1 = 0;
   char choice2 = 0;
   char choice3 = 0;
   char choice4 = 0;
   print("----------~<|INTRODUCTION|>~----------\n"
          "\nWhat is your name?\n");
-  scanf("%s", player->name);
+  fgets(player->name, sizeof(player->name), stdin);
+  strtok(player->name, "\n");
   print("\n\nYou were born the son of a...\n"
          "1. merchant\n2. baron\n3. hunter\n4. peasant\n");
   while(choice1 < 49 || choice1 > 52)

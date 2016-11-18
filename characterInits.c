@@ -2,7 +2,7 @@
 Character* initcharacter(float x, float y, float maxhealth, float health, float xp,
                         float nextlevel, float level, float attack, float onehanded, float bow, float twohanded,
                         float trade, float persuasion, float leadership, float money, float alive, float faction, 
-                        float host, char name[32], char *graphic)
+                        float host, char name[32], char graphic)
 {
   Character *player = (Character*)(malloc(sizeof(Character)));
   player->x = x;
@@ -21,28 +21,27 @@ Character* initcharacter(float x, float y, float maxhealth, float health, float 
   player->leadership = leadership;
   player->money = money;
   player->host = host;
-  player->name = name;
-  player->graphic = *graphic; //TODO char* to char in argument list, remove cast
+  strcpy(player->name, name);
+  player->graphic = graphic; //TODO char* to char in argument list, remove cast
   return player;
 }
 
 void initInventory(Character *character)
 {
   Item empty;
-  for(int i = 0; i < 50; i++) //TODO use a MACRO for inventory size
+  strcpy(empty.name, "Empty");
+  for(int i = 0; i < 64; i++) //TODO use a MACRO for inventory size
   {
     character->inventory[i] = empty;
   }
   Item fists;
   fists.type = TWOHANDED;
-  //strcpy(fists.name, "fists");
-  fists.name = "Fists";
+  strcpy(fists.name, "fists");
   fists.value = 0;
   character->activeitems[0] = fists;
   Item noarmor;
   noarmor.type = ARMOR;
-  //strcpy(noarmor.name, "no armor");
-  noarmor.name = "No Armor";
+  strcpy(noarmor.name, "no armor");
   noarmor.value = 0;
   character->activeitems[1] = noarmor;
   return;
@@ -51,18 +50,17 @@ void initInventory(Character *character)
 void initParty(Character *leader)
 {
   Party party;
-  Troop defaulttroop;
   party.morale = 50;
-  //defaulttroop.name[0] = 'i';
+  Troop empty;
+  empty.skill = -1;
   Troop bandit;
-  //strcpy(bandit.name, "Bandit");
-  bandit.name = "Bandit";
+  strcpy(bandit.name, "Bandit");
   bandit.skill = 2;
   switch((int)leader->host){
     case 0:
       for(int i = 0; i < 100; i++)
       {
-        party.troops[i] = defaulttroop;
+        party.troops[i] = empty;
       }
       break;
     case 1:

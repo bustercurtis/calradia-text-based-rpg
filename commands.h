@@ -2,6 +2,7 @@
 #define COMMANDS
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 #include"structs.s"
 #include"print.h"
 void displayCommands(Character *player);

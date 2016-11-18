@@ -4,7 +4,7 @@ int checkParty(Party *party)
   int size = 0;
   for(int i = 0; i < 100; i++)
   {
-    if(party->troops[i].name[0] != 'i')
+    if(party->troops[i].skill != -1)
     {
       size++;
     }
@@ -34,18 +34,13 @@ void showInventory(Character *player)
 {
   print("\n\n----Active Items----\nWeapon: %s\nArmor: %s\n\n----Inventory----\n", player->activeitems[0].name,
          player->activeitems[1].name);
-  int emptynum = 0;
-  for(int i = 0; i < 400; i++)
+  for(int i = 0; i < 8; i++)
   {
-    if(strcmp(player->inventory[i].name, ""))
+    for(int j = 0; j< 8; j++)
     {
-      print("%s\n", player->inventory[i].name);
+      print("%s  ", player->inventory[(i*8 + j)].name);
     }
-    emptynum++;
-  }
-  if(emptynum == 400)
-  {
-    print("Empty");
+    print("\n");
   }
   print("\n");
   return;

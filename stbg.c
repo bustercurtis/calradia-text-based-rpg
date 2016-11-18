@@ -13,15 +13,15 @@
 void die(Character *player);
 int main()
 {
-  Character *player = (Character*)malloc(sizeof(initcharacter(15,15,20,20,0,100,1,3,10,10,10,1,1,1,0,1,0,0,"Player","X"))); 
-  player = initcharacter(15,15,20,20,0,100,1,3,10,10,10,1,1,1,0,1,0,0,"Player","X");
+  Character *player = (Character*)malloc(sizeof(initcharacter(15,15,20,20,0,100,1,3,10,10,10,1,1,1,0,1,0,0,"Player",'x'))); 
+  player = initcharacter(15,15,20,20,0,100,1,3,10,10,10,1,1,1,0,1,0,0,"Player",'x');
   initParty(player);
   initInventory(player);
   intro(player);
   showInventory(player);
   showStats(player);
-  Character *introbandit = (Character*)malloc(sizeof(initcharacter(15,15,20,20,0,0,0,2,0,0,0,0,0,0,0,1,1,0, "Robber", "C")));
-  introbandit = initcharacter(15,15,20,20,0,0,0,2,0,0,0,0,0,0,0,1,1,0, "Robber", "C");
+  Character *introbandit = (Character*)malloc(sizeof(initcharacter(15,15,20,20,0,0,0,2,0,0,0,0,0,0,0,1,1,0, "Robber", 'c')));
+  introbandit = initcharacter(15,15,20,20,0,0,0,2,0,0,0,0,0,0,0,1,1,0, "Robber", 'c');
   initInventory(introbandit);
   initParty(introbandit);
   print("\nAre you ready to start your adventure, %s?\n", player->name);

@@ -1,5 +1,6 @@
-#include "structs.s"
-#include <stdlib.h>
+#include"structs.s"
+#include<stdlib.h>
+#include<string.h>
 #ifndef ITEMS
 #define ITEMS
 
