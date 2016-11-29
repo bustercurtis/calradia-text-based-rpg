@@ -153,6 +153,45 @@ int fight(Character *player, Character *enemy)
         return 1;
       }
     }
+    else if(!strncmp(fightchoice, "block", 5))
+    {
+      int pdamage = (calcDamage(player) - 3);
+      if(player->health > 0)
+      {
+        print("\nYou prepare to defend yourself.\n");
+	cont();
+        if(pdamage < 1)
+        {
+          pdamage = 1;
+        }
+        enemy->health -= pdamage;
+      }
+      if(enemy->health > 0)
+      {
+	print("\nYour enemy attacks you with his %s, ", enemy->activeitems[0].name);
+	int edamage = calcDamage(enemy) - 5;
+        if(edamage < 0)
+	{
+	  edamage = 0;
+	  print("but you manage to \nblock all damage, dealing %d in return!\n", pdamage);
+	}
+	else
+	{
+	  print("and despite your block\nhe manages to \ndeal %d damage, and you deal %d in a counter.\n", edamage, pdamage);
+        }
+	player->health -= edamage;
+     }
+     else
+     {
+	print("\nYour enemy attacks you, but you block it and kill him in your counter!\n");
+        float xpgained = 4*enemy->attack;
+        player->xp += xpgained;
+        print("\nYou have won your fight.\n\n--Health--\n%g/%g\n\n--XP Gained--\n%gxp"
+               "--XP--\n%g/%g\n", player->health, player->maxhealth, xpgained, player->xp, player->nextlevel);
+        cont();
+        return 1;
+      }
+    }
     else
     {
       print("\nInvalid commmand. In your confusion, your enemy strikes.\n");

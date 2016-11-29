@@ -5,6 +5,7 @@
 #include"structs.s"
 #include"print.h"
 int checkParty(Party *party);
+void addTroop(Party *party, Troop troop);
 void showStats(Character *player);
 void checkLevel(Character *player);
 void levelup(Character *player);

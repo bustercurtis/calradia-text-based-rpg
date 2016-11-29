@@ -11,7 +11,16 @@ int checkParty(Party *party)
   }
   return size;
 }
-
+void addTroop(Party *party, Troop troop)
+{
+  for(int i = 0; i < sizeof(party->troops); i++)
+  {
+    if(party->troops[i].skill == -1)
+    {
+      party->troops[i] = troop;
+    }
+  }
+}
 void showStats(Character *player)
 {
   print("\n\n-----<|Stats|>-----\n%s, Level %g\nXP: %g/%g\nHealth: %g/%g\nAttack: %g\nTrade: %g\nPersuasion: %g\n"
@@ -34,11 +43,11 @@ void showInventory(Character *player)
 {
   print("\n\n----Active Items----\nWeapon: %s\nArmor: %s\n\n----Inventory----\n", player->activeitems[0].name,
          player->activeitems[1].name);
-  for(int i = 0; i < 8; i++)
+  for(int i = 0; i < 16; i++)
   {
-    for(int j = 0; j< 8; j++)
+    for(int j = 0; j< 4; j++)
     {
-      print("%s  ", player->inventory[(i*8 + j)].name);
+      print("%s  ", player->inventory[(i*4 + j)].name);
     }
     print("\n");
   }
