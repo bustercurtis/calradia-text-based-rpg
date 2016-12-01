@@ -13,12 +13,15 @@ int checkParty(Party *party)
 }
 void addTroop(Party *party, Troop troop)
 {
-  for(int i = 0; i < sizeof(party->troops); i++)
+  int done = 0;
+  for(int i = 0; i < (sizeof(party->troops) / sizeof(Troop)); i++)
   {
     if(party->troops[i].skill == -1)
     {
       party->troops[i] = troop;
+      done++;
     }
+    if(done){i = sizeof(party->troops);}
   }
 }
 void showStats(Character *player)

@@ -1,20 +1,27 @@
 #include"commands.h"
-void displayCommands(Character *player)
+char **displayCommands(Character *player)
 {
   char **ret;
-  for(int i = 0; i < (sizeof(player->commands)/sizeof(int)); i++)
+  for(int i = 0; i < (sizeof(player->commands) / sizeof(int)); i++)
   {
     if(player->commands[i])
     {
       ret[i] = player->unlockOrder[i].desc;
     }
   }
-}
-char **checkCommands(int *commands)
-{
-  char *gay = "fuck you";
-  char **ret = &gay;
   return ret;
+}
+int checkCommand(Character *player, char *command)
+{
+  for(int i = 0; i < (sizeof(player->commands) / sizeof(int)); i++)
+  {
+    char *curr = player->unlockOrder[i].name;
+    if(!strncmp(curr, command, (int)(sizeof(curr) / sizeof(char))) && player->commands[i])
+    {
+      return 1;
+    }
+  }
+  return 0;
 }
 BattleCommand createCommand(float anticav, float antiinfantry, float antiarchers, float quality, 
 			    float defensive, float offensive, int melee, TroopType affects, char *name, char *desc)

@@ -7,6 +7,7 @@
 #include"structs.s"
 #include"calcCheck.h"
 #include"cont.h"
+#include"commands.h"
 int battle(Character *player, Character *enemy);
 int fight(Character *player, Character *enemy);
 #endif

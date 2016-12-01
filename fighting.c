@@ -1,5 +1,5 @@
 #include"fighting.h"
-const int FOUGHT = 0;
+int FOUGHT = 0;
 int battle(Character *player, Character *enemy)
 {
   int battling = 1;
@@ -21,13 +21,13 @@ int battle(Character *player, Character *enemy)
   }
   if(checkParty(&enemy->party) > 5 && checkParty(&player->party) == 0)
   {
-    print("\nAs you approach to fight the enemy, %s stands there, surrounded by your men.\nVictory is swift."
+    print("\nAs you approach to fight the enemy, %s stands there, surrounded by your men.\nVictory is swift.\n"
           "\n", enemy->name);
     print("\nBattle won!\n");
     showStats(player);
     return 1;
   }
-  else if(checkParty(&enemy->party) == 0 || checkParty(&player->party) == 0)
+  else if(checkParty(&enemy->party) == 0 && checkParty(&player->party) == 0)
   {
     return fight(player, enemy);
   }
@@ -42,10 +42,14 @@ int battle(Character *player, Character *enemy)
              "skirmish: stay back and avoid melee whilst firing missiles, good with archers poor against cavalry\n"
              "shield: defensive maneuver, good with infantry, good against charge\n"
              "cantabrian: horse archer circle, avoiding melee while firing missiles with high mobility\n");
+      FOUGHT = 1;
     }
-    return 1;
     while(battling)
     {
+      print("\nYou must decide what the infantry will do...\n");
+      char* infCommand;
+      scanf("%s", infCommand);
+      if(checkCommand(player, infCommand)){return 1;}
       
     }
   }
@@ -71,7 +75,7 @@ int fight(Character *player, Character *enemy)
       print("\nYou circle eachother, waiting for an opportune time to strike.\n");
       if(checkParty(&(player->party)) > 0 && checkParty(&(enemy->party)) > 0)
       {
-        print("Only once an arrow lands near your foot do you remember that this\nis a battle, not a duel.");
+        print("Only once an arrow lands near your foot do you remember that this\nis a battle, not a duel.\n");
       }
       break;
     case 3:
@@ -148,7 +152,7 @@ int fight(Character *player, Character *enemy)
         float xpgained = 4*enemy->attack;
         player->xp += xpgained;
         print("\nYour enemy falls before you. You have won your fight.\n\n--Health--\n%g/%g\n\n--XP Gained--\n%gxp"
-               "--XP--\n%g/%g\n", player->health, player->maxhealth, xpgained, player->xp, player->nextlevel);
+               "\n--XP--\n%g/%g\n", player->health, player->maxhealth, xpgained, player->xp, player->nextlevel);
         cont();
         return 1;
       }

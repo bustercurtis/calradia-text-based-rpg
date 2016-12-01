@@ -10,6 +10,7 @@ void showStats(Character *player);
 void checkLevel(Character *player);
 void levelup(Character *player);
 void showInventory(Character *player);
+void addItem(Character *player, Item item);
 int calcDamage(Character *player);
 #endif
 
