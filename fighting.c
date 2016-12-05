@@ -33,22 +33,23 @@ int battle(Character *player, Character *enemy)
   }
   else
   {
-    printf("\nYour men arrive at the battlefield and you see %s's party waiting on the other end.\n"
+    print("\nYour men arrive at the battlefield and you see %s's party waiting on the other end.\n"
            "The time for battle has come.\n", enemy->name);
     if(!FOUGHT)
     {
-      printf("\nFOUR NEW COMMANDS: charge, skirmish, shieldwall, cantabrian\n"
-             "charge: unorganized frontal charge, good with cavalry, good against archers\n"
-             "skirmish: stay back and avoid melee whilst firing missiles, good with archers poor against cavalry\n"
-             "shield: defensive maneuver, good with infantry, good against charge\n"
-             "cantabrian: horse archer circle, avoiding melee while firing missiles with high mobility\n");
+      print("\nFIVE NEW COMMANDS: charge, scharge, skirmish, shield, cantabrian\n");
+      for(int i = 0; i < 5; i++)
+      {
+	print("%s\n", player->unlockOrder[i].desc);
+      }
       FOUGHT = 1;
     }
     while(battling)
     {
       print("\nYou must decide what the infantry will do...\n");
-      char* infCommand;
+      char infCommand[16];
       scanf("%s", infCommand);
+      print("%s", infCommand);
       if(checkCommand(player, infCommand)){return 1;}
       
     }

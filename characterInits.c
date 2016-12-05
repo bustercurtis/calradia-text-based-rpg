@@ -95,7 +95,14 @@ void initCommands(Character *player)
 	"surprise attack the enemy as they approach");
   BattleCommand caracole = createCommand(2, 2, 2, 3, 3, 3, 0, HORSE_ARCHER, "caracole", "caracole - Horse archers push forth"
 	"and discharge, then retreat and repeat");
-  BattleCommand unlockOrder[12] = {shockCharge, shieldWall, cantabrian, skirmish, schiltron, feign, deployStakes, parthian,
-	heroicCharge, couch, ambush, caracole};
-  player->unlockOrder = unlockOrder;
+  BattleCommand unlockOrder[13] = {basicCharge, shockCharge, shieldWall, cantabrian, skirmish, schiltron, feign, deployStakes, 		parthian, heroicCharge, couch, ambush, caracole};
+  for(int i = 0; i < 13; i++)
+  {
+    player->unlockOrder[i] = unlockOrder[i];
+  }
+  print("%s", player->unlockOrder[0].desc);
+  for(int i = 0; i < 5; i++)
+  {
+    player->commands[i] = 1;
+  }
 }

@@ -25,7 +25,7 @@ typedef struct
   float anticav, antiinfantry, antiarchers, quality, defensive, offensive;
   int melee;
   TroopType affects;
-  char name[32], *desc;
+  char *name, *desc;
 } BattleCommand;
 typedef struct
 {
@@ -37,7 +37,7 @@ typedef struct
   Item inventory[64];
   Item activeitems[2];
   int commands[13];
-  BattleCommand *unlockOrder;
+  BattleCommand unlockOrder[13];
 } Character;
 typedef enum {Plain, Forest, Hills} Terrain;
 typedef enum {None, Village, Castle} Structure;

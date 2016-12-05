@@ -35,6 +35,7 @@ BattleCommand createCommand(float anticav, float antiinfantry, float antiarchers
   newCommand.offensive = offensive;
   newCommand.melee = melee;
   newCommand.affects = affects;
-  strcpy(newCommand.name, name);
+  newCommand.name = name;
+  newCommand.desc = desc;
   return newCommand;
 }
