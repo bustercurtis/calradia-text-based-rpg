@@ -11,7 +11,7 @@ char **displayCommands(Character *player)
   }
   return ret;
 }
-int checkCommand(Character *player, char *command, TroopType)
+int checkCommand(Character *player, char *command, TroopType type)
 {
   for(int i = 0; i < (sizeof(player->commands) / sizeof(int)); i++)
   {

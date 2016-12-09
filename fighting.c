@@ -50,7 +50,7 @@ int battle(Character *player, Character *enemy)
       char infCommand[16];
       scanf("%s", infCommand);
       print("%s", infCommand);
-      if(checkCommand(player, infCommand)){return 1;}
+      if(checkCommand(player, infCommand, INFANTRY)){return 1;}
       
     }
   }

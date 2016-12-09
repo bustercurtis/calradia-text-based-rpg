@@ -6,7 +6,7 @@
 #include"structs.s"
 #include"print.h"
 char **displayCommands(Character *player);
-int checkCommand(Character *player, char *command);
+int checkCommand(Character *player, char *command, TroopType type);
 BattleCommand createCommand(float anticav, float antiinfantry, float antiarchers, float quality, 
 			    float defensive, float offensive, int melee, TroopType affects, char *name, char *desc);
 #endif
